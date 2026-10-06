@@ -1,0 +1,151 @@
+datasource db {
+  provider = "sqlite" // Altere para "postgresql" ao conectar ao Supabase / PostgreSQL
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AdminUser {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String   @default("Administrador Mazala")
+  password  String   // Hash bcrypt
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}
+
+model Product {
+  id          String      @id @default(uuid())
+  name        String      // ex: "iPhone 18 Pro Max"
+  model       String      // ex: "18 Pro Max"
+  generation  String      // ex: "18 Series", "17 Series", "16 Series"
+  condition   String      @default("Seminovo") // 'Novo', 'Seminovo', 'Lançamento'
+  category    String      @default("pro-max")  // 'pro-max', 'padrao', 'custo-beneficio', 'ecosystem'
+  tag         String?     @default("1 Ano de Garantia")
+  tagBg       String?     @default("bg-neutral-900")
+  description String?
+  specs       String      // JSON array string ex: '["Dynamic Island", "Apple M4", "120Hz"]'
+  storage     String      // ex: "256GB" ou base storage
+  storages    String      // JSON object string de preços ex: '{"128GB": 4999, "256GB": 5499}'
+  colors      String      // JSON array string com cores, hex e URLs de imagem
+  price       Float       // Preço base à vista
+  isActive    Boolean     @default(true) @map("is_active")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  inventoryItems   InventoryItem[]
+  leads            OrderLead[]
+
+  @@map("products")
+}
+
+model InventoryItem {
+  id            String            @id @default(uuid())
+  productId     String            @map("product_id")
+  imei          String            @unique // 15 dígitos únicos
+  serialNumber  String?           @map("serial_number")
+  batteryHealth Int               @default(100) @map("battery_health") // Porcentagem de saúde (ex: 96%)
+  batteryCycles Int?              @default(120) @map("battery_cycles")
+  color         String            // ex: "Titânio Natural"
+  storage       String            // ex: "256GB"
+  costPrice     Float?            @map("cost_price")
+  salePrice     Float             @map("sale_price")
+  status        String            @default("available") // 'available', 'reserved', 'sold'
+  soldAt        DateTime?         @map("sold_at")
+  createdAt     DateTime          @default(now()) @map("created_at")
+  updatedAt     DateTime          @updatedAt @map("updated_at")
+
+  product       Product           @relation(fields: [productId], references: [id], onDelete: Cascade)
+  inspection    InspectionReport?
+
+  @@map("inventory_items")
+}
+
+model InspectionReport {
+  id                   String        @id @default(uuid())
+  inventoryItemId      String        @unique @map("inventory_item_id")
+  technicianName       String        @default("Técnico Especialista Mazala") @map("technician_name")
+  screenOriginal       Boolean       @default(true) @map("screen_original")
+  trueToneActive       Boolean       @default(true) @map("true_tone_active")
+  faceIdActive         Boolean       @default(true) @map("face_id_active")
+  camerasTested        Boolean       @default(true) @map("cameras_tested")
+  audioMicrophoneOk    Boolean       @default(true) @map("audio_microphone_ok")
+  chargingWirelessOk   Boolean       @default(true) @map("charging_wireless_ok")
+  housingGrade         String        @default("Grade A+") @map("housing_grade") // 'Grade A+', 'Grade A', 'Grade B'
+  batteryPercentage    Int           @map("battery_percentage")
+  batteryOriginal      Boolean       @default(true) @map("battery_original")
+  warrantyPeriodMonths Int           @default(12) @map("warranty_period_months") // 12 meses (1 ano)
+  notes                String?
+  createdAt            DateTime      @default(now()) @map("created_at")
+
+  inventoryItem        InventoryItem @relation(fields: [inventoryItemId], references: [id], onDelete: Cascade)
+
+  @@map("inspection_reports")
+}
+
+model TradeInEvaluation {
+  id                 String   @id @default(uuid())
+  usedModel          String   @map("used_model")
+  batteryHealthRange String   @map("battery_health_range")
+  conditionLabel     String   @default("Impecável") @map("condition_label")
+  evaluationValue    Float    @map("evaluation_value")
+  isActive           Boolean  @default(true) @map("is_active")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  @@map("trade_in_evaluations")
+}
+
+model OrderLead {
+  id                   String    @id @default(uuid())
+  clientPhone          String    @map("client_phone")
+  clientName           String?   @map("client_name")
+  desiredProductId     String?   @map("desired_product_id")
+  desiredProductName   String    @map("desired_product_name")
+  desiredStorage       String    @default("128GB") @map("desired_storage")
+  desiredColor         String?   @map("desired_color")
+  usedModelName        String?   @map("used_model_name")
+  usedEvaluationValue  Float?    @default(0) @map("used_evaluation_value")
+  calculatedDifference Float     @map("calculated_difference")
+  couponApplied        String?   @map("coupon_applied")
+  status               String    @default("Novo")
+  notes                String?
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+
+  desiredProduct       Product?  @relation(fields: [desiredProductId], references: [id], onDelete: SetNull)
+
+  @@map("orders_leads")
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(uuid())
+  eventType  String   @map("event_type") // 'trade_in_simulation', 'whatsapp_click', 'product_view', 'inspection_view'
+  targetId   String?  @map("target_id")
+  targetName String?  @map("target_name") // ex: "iPhone 13 128GB", "iPhone 18 Pro Max"
+  metadata   String?  // JSON string
+  ipAddress  String?  @map("ip_address")
+  userAgent  String?  @map("user_agent")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@map("analytics_events")
+}
+
+model Review {
+  id               String   @id @default(uuid())
+  clientName       String   @map("client_name")
+  location         String   @default("Cataguases - MG")
+  text             String
+  rating           Int      @default(5)
+  imageUrl         String?  @map("image_url")
+  verifiedPurchase Boolean  @default(true) @map("verified_purchase")
+  status           String   @default("approved")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@map("reviews")
+}
