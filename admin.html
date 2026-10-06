@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#06070a]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MΛZΛLΛ PHONE • Painel Executivo do Lojista</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .font-mono-num { font-family: 'Space Grotesk', monospace; }
+    .glass-panel { 
+      background: rgba(13, 15, 22, 0.75); 
+      backdrop-filter: blur(24px); 
+      -webkit-backdrop-filter: blur(24px); 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+    }
+    .glass-panel-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-panel-hover:hover {
+      background: rgba(20, 24, 35, 0.85);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .glass-modal {
+      background: rgba(10, 12, 18, 0.95);
+      backdrop-filter: blur(32px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .custom-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 999px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="h-full text-slate-100 flex flex-col selection:bg-[#e11d48] selection:text-white antialiased bg-[#06070a]">
+
+  <!-- ==================== TELA DE LOGIN ULTRA-PREMIUM (BLINDADA) ==================== -->
+  <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#07080c] to-[#030406]">
+    
+    <!-- Ambient glow effects -->
+    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rose-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-10 right-10 w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="w-full max-w-md glass-panel p-8 sm:p-10 rounded-3xl shadow-2xl relative border border-white/10 z-10">
+      
+      <!-- LOGO MAZALA OFICIAL COM ALINHAMENTO MATEMATICAMENTE PERFEITO -->
+      <div class="flex flex-col items-center mb-8 text-center">
+        <a href="index.html" title="Ir para o início da loja" class="inline-flex items-center justify-center group py-2 select-none mb-3 hover:opacity-90 transition-all cursor-pointer">
+          <div class="flex flex-col items-center justify-center text-center">
+            <!-- MΛZΛLΛ Centralizado com compensação de tracking -->
+            <div class="flex items-center justify-center text-3xl font-light tracking-[0.28em] text-white leading-none pl-[0.28em]">
+              <span class="text-[#e11d48] font-normal">M</span><span class="font-light">Λ</span><span class="font-light">Z</span><span class="font-light">Λ</span><span class="font-light">L</span><span class="font-light">Λ</span>
+            </div>
+            <!-- Divisória Vermelha + Apple Icon -->
+            <div class="w-full flex items-center justify-center my-1.5 px-1">
+              <span class="h-[0.75px] flex-grow bg-[#e11d48]"></span>
+              <span class="px-1.5 text-white flex items-center justify-center">
+                <svg class="w-3 h-3 fill-current text-white" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.34-6.19-9.46-11.13-20.24-14.81-32.34-3.69-12.09-5.54-23.75-5.54-34.99 0-14.34 3.73-26.34 11.19-35.99 7.46-9.65 16.89-14.58 28.29-14.78 4.58 0 9.77 1.25 15.58 3.76 5.8 2.5 9.73 3.82 11.78 3.95 1.83 0 5.86-1.37 12.08-4.12 6.23-2.75 11.74-4.04 16.54-3.88 12.7.63 22.78 5.24 30.24 13.84-11.05 6.74-16.47 16.03-16.27 27.87.2 9.4 3.73 17.29 10.6 23.66 6.87 6.38 15.22 10.02 25.04 10.92-2.12 6.53-4.8 13.04-8.03 19.53zM119.22 31.84c0-7.39 2.66-14.42 7.98-21.09 5.32-6.68 11.98-10.42 19.98-11.22.13 1.02.2 1.83.2 2.45 0 7.39-2.73 14.54-8.19 21.46-5.46 6.92-12.18 10.67-20.17 11.25-.2-1.02-.3-1.97-.3-2.85z"/></svg>
+              </span>
+              <span class="h-[0.75px] flex-grow bg-[#e11d48]"></span>
+            </div>
+            <!-- PHONE 100% Alinhado e Centralizado -->
+            <div class="w-full flex items-center justify-center text-[8.5px] font-medium uppercase tracking-[0.52em] text-neutral-300 pl-[0.52em] leading-none text-center">
+              PHONE
+            </div>
+          </div>
+          
+          <div class="h-10 w-[0.75px] bg-white/20 mx-4"></div>
+          <div class="flex flex-col text-left justify-center leading-tight">
+            <span class="text-[11px] text-neutral-300 font-light">Especialista</span>
+            <span class="text-[11px] text-neutral-400 font-light">em Apple</span>
+          </div>
+        </a>
+        <h1 class="text-xl font-bold tracking-tight text-white mt-1">Acesso Restrito ao Proprietário</h1>
+        <p class="text-xs text-slate-400 mt-1">Ambiente protegido com isolamento estrito de dados</p>
+      </div>
+
+      <!-- FORMULÁRIO COM CAMPOS TOTALMENTE LIMPOS E PROTEÇÃO CONTRA BRUTE FORCE -->
+      <form id="adminLoginForm" onsubmit="handleLogin(event)" autocomplete="off" class="space-y-4">
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Usuário Autorizado:</label>
+          <div class="relative">
+            <i data-lucide="shield" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="loginEmail" required value="" autocomplete="off" class="w-full bg-slate-900/90 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-white outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all" placeholder="Usuário (ex: mazala ou email)" />
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400">Senha do Lojista:</label>
+            <span class="text-[10px] text-rose-400 font-semibold">Exclusivo Dono</span>
+          </div>
+          <div class="relative">
+            <i data-lucide="key-round" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="password" id="loginPassword" required value="" autocomplete="new-password" class="w-full bg-slate-900/90 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-white outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all font-mono" placeholder="••••••••••" />
+          </div>
+        </div>
+
+        <div id="loginError" class="hidden text-xs font-bold text-rose-300 bg-rose-950/70 border border-rose-800/80 p-3.5 rounded-xl text-center flex items-center justify-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400 flex-shrink-0"></i>
+          <span id="loginErrorMsg">Senha incorreta. Acesso restrito ao proprietário.</span>
+        </div>
+
+        <button type="submit" id="loginBtn" class="w-full bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-extrabold text-sm py-3.5 rounded-xl shadow-lg shadow-rose-900/40 hover:shadow-rose-700/50 transition-all flex items-center justify-center gap-2 mt-3 cursor-pointer">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+          <span>Entrar no Painel Seguro</span>
+        </button>
+      </form>
+
+      <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-500">
+        <a href="index.html" class="flex items-center gap-1.5 hover:text-white transition-colors">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Voltar à Loja
+        </a>
+        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Zero-Trust Guard</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD PRINCIPAL SOFISTICADO ==================== -->
+  <div id="dashboardScreen" class="hidden min-h-screen flex flex-col bg-[#07080c]">
+    
+    <!-- Topbar Executivo com Distribuição Harmônica e Encaixe Perfeito -->
+    <header class="bg-[#0c0e15]/95 border-b border-white/10 backdrop-blur-xl sticky top-0 z-40 px-3 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 lg:gap-6">
+      
+      <!-- Lado Esquerdo: Logo Perfeitamente Alinhado -->
+      <a href="index.html" title="Ir para o início da loja" class="flex items-center gap-3 group hover:opacity-90 transition-all cursor-pointer select-none shrink-0">
+        <div class="flex flex-col items-center justify-center text-center">
+          <div class="flex items-center justify-center text-lg sm:text-xl font-light tracking-[0.25em] text-white leading-none pl-[0.25em]">
+            <span class="text-[#e11d48] font-normal">M</span><span class="font-light">Λ</span><span class="font-light">Z</span><span class="font-light">Λ</span><span class="font-light">L</span><span class="font-light">Λ</span>
+          </div>
+          <div class="w-full flex items-center justify-center my-0.5">
+            <span class="h-[0.75px] flex-grow bg-[#e11d48]"></span>
+            <span class="px-1 text-white flex items-center justify-center">
+              <svg class="w-2 h-2 fill-current text-white" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.34-6.19-9.46-11.13-20.24-14.81-32.34-3.69-12.09-5.54-23.75-5.54-34.99 0-14.34 3.73-26.34 11.19-35.99 7.46-9.65 16.89-14.58 28.29-14.78 4.58 0 9.77 1.25 15.58 3.76 5.8 2.5 9.73 3.82 11.78 3.95 1.83 0 5.86-1.37 12.08-4.12 6.23-2.75 11.74-4.04 16.54-3.88 12.7.63 22.78 5.24 30.24 13.84-11.05 6.74-16.47 16.03-16.27 27.87.2 9.4 3.73 17.29 10.6 23.66 6.87 6.38 15.22 10.02 25.04 10.92-2.12 6.53-4.8 13.04-8.03 19.53zM119.22 31.84c0-7.39 2.66-14.42 7.98-21.09 5.32-6.68 11.98-10.42 19.98-11.22.13 1.02.2 1.83.2 2.45 0 7.39-2.73 14.54-8.19 21.46-5.46 6.92-12.18 10.67-20.17 11.25-.2-1.02-.3-1.97-.3-2.85z"/></svg>
+            </span>
+            <span class="h-[0.75px] flex-grow bg-[#e11d48]"></span>
+          </div>
+          <!-- PHONE Centralizado sem ficar torto -->
+          <div class="w-full flex items-center justify-center text-[7.5px] tracking-[0.52em] text-slate-400 font-medium uppercase pl-[0.52em] leading-none text-center">
+            PHONE
+          </div>
+        </div>
+        <span class="hidden 2xl:inline-flex text-[9px] font-black uppercase tracking-wider text-rose-300 bg-rose-950/60 border border-rose-800/80 px-2 py-0.5 rounded-md">PAINEL</span>
+      </a>
+
+      <!-- Centro: Abas de Navegação Ajustadas para Caber Perfeitamente na Tela -->
+      <nav class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-1 custom-scroll no-scrollbar max-w-full">
+        
+        <button onclick="switchTab('tab-inventory')" id="btn-tab-inventory" class="tab-btn px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-white/10 flex items-center gap-1.5 border border-white/15 shadow-sm transition-all whitespace-nowrap shrink-0 cursor-pointer">
+          <i data-lucide="boxes" class="w-3.5 h-3.5 text-rose-400"></i>
+          <span>Estoque & Vendas</span>
+          <span id="navStockBadge" class="bg-rose-500 text-white text-[10px] px-1.5 py-0.2 rounded-full font-mono-num font-extrabold ml-1">0</span>
+        </button>
+        
+        <button onclick="switchTab('tab-analytics')" id="btn-tab-analytics" class="tab-btn px-3 sm:px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition-all whitespace-nowrap shrink-0 cursor-pointer">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Métricas & Conversão</span>
+        </button>
+
+        <button onclick="switchTab('tab-products')" id="btn-tab-products" class="tab-btn px-3 sm:px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition-all whitespace-nowrap shrink-0 cursor-pointer">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Catálogo Geral</span>
+        </button>
+
+        <button onclick="switchTab('tab-tradein')" id="btn-tab-tradein" class="tab-btn px-3 sm:px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition-all whitespace-nowrap shrink-0 cursor-pointer">
+          <i data-lucide="repeat" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Tabela Trade-in</span>
+        </button>
+
+        <button onclick="switchTab('tab-leads')" id="btn-tab-leads" class="tab-btn px-3 sm:px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition-all whitespace-nowrap shrink-0 cursor-pointer">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-purple-400"></i>
+          <span>Clientes & Propostas</span>
+          <span id="navLeadsBadge" class="bg-purple-500 text-white text-[10px] px-1.5 py-0.2 rounded-full font-mono-num font-extrabold ml-1">0</span>
+        </button>
+      </nav>
+
+      <!-- Lado Direito: Perfil do Proprietário & Sair -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-rose-600 to-rose-400 flex items-center justify-center font-black text-xs text-white shadow-md">
+          M
+        </div>
+        <div class="hidden xl:flex flex-col text-left">
+          <span class="text-xs font-bold text-white leading-tight">Proprietário</span>
+          <span class="text-[9px] text-emerald-400 font-medium flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online
+          </span>
+        </div>
+        <button onclick="handleLogout()" title="Sair do painel com segurança" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-950/50 rounded-xl border border-white/5 transition-all cursor-pointer">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Conteúdo Dinâmico do Painel -->
+    <main class="flex-grow p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+
+      <!-- ========================================================= -->
+      <!-- ABA 1: CONTROLE EXECUTIVO DE ESTOQUE (ADICIONAR/REMOVER/VENDAS) -->
+      <!-- ========================================================= -->
+      <section id="tab-inventory" class="tab-content space-y-6">
+        
+        <!-- Header da Página de Estoque com Botão Principal -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-slate-900/90 via-[#0e111a] to-slate-900/90 p-6 rounded-3xl border border-white/10">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 text-[10px] font-extrabold uppercase tracking-wider">Gestão Unitária por IMEI</span>
+              <span class="text-xs text-slate-400">• Atualização em Tempo Real</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Controle de Estoque & Vendas</h2>
+            <p class="text-xs text-slate-400 mt-1 max-w-xl">
+              Gerencie cada aparelho individualmente. Adicione novos iPhones recebidos, acompanhe a saúde da bateria e dê baixa com 1 clique assim que for vendido.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="openAddStockModal()" class="w-full sm:w-auto bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-extrabold text-xs sm:text-sm py-3 px-5 rounded-2xl shadow-lg shadow-rose-900/40 flex items-center justify-center gap-2 transition-all transform active:scale-95 cursor-pointer">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>+ Adicionar iPhone ao Estoque</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 KPI Cards do Estoque -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- KPI 1: Total Disponível -->
+          <div class="glass-panel p-5 rounded-2xl border border-white/10 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Disponíveis</span>
+              <div class="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span id="kpiAvailableCount" class="text-3xl font-black text-white font-mono-num">0</span>
+              <span class="text-xs text-emerald-400 font-semibold block mt-0.5">Prontos para entrega</span>
+            </div>
+          </div>
+
+          <!-- KPI 2: Patrimônio em Estoque -->
+          <div class="glass-panel p-5 rounded-2xl border border-white/10 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Valor em Estoque</span>
+              <div class="p-2 rounded-xl bg-blue-500/10 text-blue-400">
+                <i data-lucide="wallet" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span id="kpiStockTotalValue" class="text-2xl sm:text-3xl font-black text-white font-mono-num">R$ 0,00</span>
+              <span class="text-xs text-slate-400 font-semibold block mt-0.5">Valor total de venda</span>
+            </div>
+          </div>
+
+          <!-- KPI 3: Vendidos (Baixas) -->
+          <div class="glass-panel p-5 rounded-2xl border border-white/10 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Vendidos (Baixas)</span>
+              <div class="p-2 rounded-xl bg-rose-500/10 text-rose-400">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span id="kpiSoldCount" class="text-3xl font-black text-white font-mono-num">0</span>
+              <span id="kpiSoldTotalValue" class="text-xs text-rose-400 font-semibold block mt-0.5">R$ 0,00 faturados</span>
+            </div>
+          </div>
+
+          <!-- KPI 4: Reservados -->
+          <div class="glass-panel p-5 rounded-2xl border border-white/10 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Reservados</span>
+              <div class="p-2 rounded-xl bg-amber-500/10 text-amber-400">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span id="kpiReservedCount" class="text-3xl font-black text-white font-mono-num">0</span>
+              <span class="text-xs text-amber-400 font-semibold block mt-0.5">Aguardando sinal/cliente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filtros e Barra de Busca Rápida -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-2xl border border-white/10">
+          
+          <!-- Filtros de Status -->
+          <div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto">
+            <button onclick="filterInventoryByStatus('all')" id="filter-btn-all" class="inv-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white/15 text-white border border-white/15 transition-all cursor-pointer">
+              Todos (<span id="countFilterAll">0</span>)
+            </button>
+            <button onclick="filterInventoryByStatus('available')" id="filter-btn-available" class="inv-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Disponíveis (<span id="countFilterAvailable">0</span>)
+            </button>
+            <button onclick="filterInventoryByStatus('sold')" id="filter-btn-sold" class="inv-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+              Vendidos (<span id="countFilterSold">0</span>)
+            </button>
+            <button onclick="filterInventoryByStatus('reserved')" id="filter-btn-reserved" class="inv-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Reservados (<span id="countFilterReserved">0</span>)
+            </button>
+          </div>
+
+          <!-- Barra de Busca -->
+          <div class="w-full sm:w-72 relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="inventorySearchInput" oninput="handleInventorySearch(event)" placeholder="Buscar por modelo, IMEI ou GB..." class="w-full bg-slate-950/80 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs font-medium text-white outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all" />
+          </div>
+        </div>
+
+        <!-- Grade e Lista de Itens do Estoque -->
+        <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-xl">
+          <div class="overflow-x-auto custom-scroll">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-white/10 bg-slate-900/80 text-slate-400 font-bold uppercase tracking-wider text-[11px]">
+                  <th class="py-4 px-5">Aparelho & Modelo</th>
+                  <th class="py-4 px-4">Capacidade & Cor</th>
+                  <th class="py-4 px-4">IMEI / Serial</th>
+                  <th class="py-4 px-4 text-center">Bateria</th>
+                  <th class="py-4 px-4">Valor de Venda</th>
+                  <th class="py-4 px-4 text-center">Status</th>
+                  <th class="py-4 px-5 text-right">Ações Rápidas</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody" class="divide-y divide-white/5 font-medium text-slate-200">
+                <tr>
+                  <td colspan="7" class="py-12 text-center text-slate-500">
+                    <i data-lucide="loader-2" class="w-6 h-6 animate-spin mx-auto mb-2 text-rose-500"></i>
+                    Carregando estoque de iPhones...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- ABA 2: MÉTRICAS & CONVERSÃO (TRADE-IN & WHATSAPP) -->
+      <!-- ========================================================= -->
+      <section id="tab-analytics" class="tab-content hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/80 p-6 rounded-3xl border border-white/10">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[10px] font-extrabold uppercase tracking-wider">Inteligência de Vendas</span>
+            <h2 class="text-2xl font-black text-white mt-1">Métricas de Conversão & Desempenho</h2>
+            <p class="text-xs text-slate-400 mt-1">Acompanhe quais iPhones geram mais interesse, cliques e simulações de troca na loja.</p>
+          </div>
+          <button onclick="loadAnalyticsData()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Atualizar Dados
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Ranking Trade In -->
+          <div class="glass-panel p-6 rounded-3xl border border-white/10 md:col-span-2">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                  <i data-lucide="repeat" class="w-4 h-4 text-amber-400"></i>
+                  Top Modelos Mais Simulados no Trade-In
+                </h3>
+                <p class="text-[11px] text-slate-400">Aparelhos que os clientes mais querem entregar como entrada</p>
+              </div>
+            </div>
+            <div id="analyticsTradeInRanking" class="space-y-3">
+              <!-- Renderizado via JS -->
+            </div>
+          </div>
+
+          <!-- Cliques WhatsApp -->
+          <div class="glass-panel p-6 rounded-3xl border border-white/10">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 mb-4">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+              Cliques no Botão WhatsApp
+            </h3>
+            <div id="analyticsWhatsAppClicks" class="space-y-3">
+              <!-- Renderizado via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Volume de Leads 7 Dias -->
+        <div class="glass-panel p-6 rounded-3xl border border-white/10">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2 mb-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-purple-400"></i>
+            Volume de Orçamentos Gerados nos Últimos 7 Dias
+          </h3>
+          <div id="analyticsLeadsVolume" class="grid grid-cols-7 gap-2 pt-4 text-center">
+            <!-- Renderizado via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- ABA 3: CATÁLOGO GERAL & PREÇOS -->
+      <!-- ========================================================= -->
+      <section id="tab-products" class="tab-content hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/80 p-6 rounded-3xl border border-white/10">
+          <div>
+            <h2 class="text-2xl font-black text-white">Catálogo & Preços Globais</h2>
+            <p class="text-xs text-slate-400 mt-1">Ajuste os valores base e preços por gigabyte exibidos no site principal.</p>
+          </div>
+        </div>
+
+        <div id="productsAdminGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Renderizado via JS -->
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- ABA 4: TABELA TRADE-IN -->
+      <!-- ========================================================= -->
+      <section id="tab-tradein" class="tab-content hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/80 p-6 rounded-3xl border border-white/10">
+          <div>
+            <h2 class="text-2xl font-black text-white">Tabela de Avaliação de Usados (Trade-In)</h2>
+            <p class="text-xs text-slate-400 mt-1">Configure o valor máximo pago pelo aparelho usado do cliente na troca.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-white/10 bg-slate-900/80 text-slate-400 font-bold uppercase text-[11px]">
+                <th class="py-4 px-6">Modelo Usado</th>
+                <th class="py-4 px-6">Saúde de Bateria</th>
+                <th class="py-4 px-6">Condição</th>
+                <th class="py-4 px-6">Valor Pago (R$)</th>
+                <th class="py-4 px-6 text-right">Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tradeinTableBody" class="divide-y divide-white/5 text-slate-300">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- ABA 5: CLIENTES POR ID & PROPOSTAS (TOTALMENTE ISOLADOS) -->
+      <!-- ========================================================= -->
+      <section id="tab-leads" class="tab-content hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/80 p-6 rounded-3xl border border-white/10">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 text-[10px] font-extrabold uppercase tracking-wider">Privacidade Rigorosa • LGPD</span>
+              <span class="text-xs text-slate-400">• Isolamento por Client ID</span>
+            </div>
+            <h2 class="text-2xl font-black text-white mt-1">Gestão de Clientes & Orçamentos</h2>
+            <p class="text-xs text-slate-400 mt-1">
+              Cada cliente possui um identificador único criptográfico isolado. Nenhum cliente tem acesso aos dados ou orçamentos de outros clientes.
+            </p>
+          </div>
+          <button onclick="loadLeadsData()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Atualizar Propostas
+          </button>
+        </div>
+
+        <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-xl">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-white/10 bg-slate-900/80 text-slate-400 font-bold uppercase text-[11px]">
+                <th class="py-4 px-5">ID do Cliente</th>
+                <th class="py-4 px-4">Data / Hora</th>
+                <th class="py-4 px-4">Aparelho Desejado</th>
+                <th class="py-4 px-4">Troca (Trade-In)</th>
+                <th class="py-4 px-4">Diferença a Pagar</th>
+                <th class="py-4 px-4 text-center">Status</th>
+                <th class="py-4 px-5 text-right">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTableBody" class="divide-y divide-white/5 text-slate-200">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL SOFISTICADO: ADICIONAR NOVO IPHONE AO ESTOQUE -->
+  <!-- ========================================================= -->
+  <div id="addStockModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="w-full max-w-2xl glass-modal p-6 sm:p-8 rounded-3xl border border-white/15 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-2xl bg-rose-500/15 text-rose-400 border border-rose-500/20">
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Cadastrar Aparelho no Estoque</h3>
+            <p class="text-xs text-slate-400">Insira as informações do novo iPhone físico para disponibilizá-lo para venda</p>
+          </div>
+        </div>
+        <button onclick="closeAddStockModal()" class="p-2 text-slate-400 hover:text-white rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="addStockForm" onsubmit="handleSaveStockItem(event)" class="mt-6 space-y-4">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Modelo -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Modelo do iPhone *</label>
+            <select id="stockModelSelect" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500">
+              <option value="iphone-18-pro-max">iPhone 18 Pro Max</option>
+              <option value="iphone-18-pro">iPhone 18 Pro</option>
+              <option value="iphone-18">iPhone 18</option>
+              <option value="iphone-17-pro-max">iPhone 17 Pro Max</option>
+              <option value="iphone-17-pro">iPhone 17 Pro</option>
+              <option value="iphone-17">iPhone 17</option>
+              <option value="iphone-16-pro-max">iPhone 16 Pro Max</option>
+              <option value="iphone-16-pro">iPhone 16 Pro</option>
+              <option value="iphone-16-plus">iPhone 16 Plus</option>
+              <option value="iphone-16">iPhone 16</option>
+              <option value="iphone-15-pro-max">iPhone 15 Pro Max</option>
+              <option value="iphone-15-pro">iPhone 15 Pro</option>
+              <option value="iphone-15-plus">iPhone 15 Plus</option>
+              <option value="iphone-15">iPhone 15</option>
+              <option value="iphone-14-pro-max">iPhone 14 Pro Max</option>
+              <option value="iphone-14-pro">iPhone 14 Pro</option>
+              <option value="iphone-14-plus">iPhone 14 Plus</option>
+              <option value="iphone-14">iPhone 14</option>
+              <option value="iphone-13-pro-max">iPhone 13 Pro Max</option>
+              <option value="iphone-13-pro">iPhone 13 Pro</option>
+              <option value="iphone-13">iPhone 13</option>
+              <option value="iphone-12-pro-max">iPhone 12 Pro Max</option>
+              <option value="iphone-12-pro">iPhone 12 Pro</option>
+              <option value="iphone-12">iPhone 12</option>
+              <option value="iphone-11-pro-max">iPhone 11 Pro Max</option>
+              <option value="iphone-11-pro">iPhone 11 Pro</option>
+              <option value="iphone-11">iPhone 11</option>
+            </select>
+          </div>
+
+          <!-- Armazenamento -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Armazenamento *</label>
+            <select id="stockStorageSelect" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500">
+              <option value="128GB">128GB</option>
+              <option value="256GB" selected>256GB</option>
+              <option value="512GB">512GB</option>
+              <option value="1TB">1TB</option>
+              <option value="64GB">64GB</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- Cor -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Cor *</label>
+            <input type="text" id="stockColorInput" required placeholder="Ex: Titânio Natural, Preto..." class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500" value="Titânio Natural" />
+          </div>
+
+          <!-- Saúde Bateria -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Saúde Bateria (%) *</label>
+            <input type="number" id="stockBatteryInput" required min="70" max="100" placeholder="100" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500 font-mono" value="100" />
+          </div>
+
+          <!-- Condição -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Condição *</label>
+            <select id="stockConditionSelect" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500">
+              <option value="Seminovo Impecável">Seminovo Impecável (Grau A+)</option>
+              <option value="Lacrado Novo">Lacrado (Novo de Fábrica)</option>
+              <option value="Vitrine / Open Box">Vitrine / Open Box</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- IMEI -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">IMEI (15 dígitos) *</label>
+            <input type="text" id="stockImeiInput" required maxlength="18" placeholder="Ex: 359124089123456" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500 font-mono tracking-wider" />
+          </div>
+
+          <!-- Número de Série -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Número de Série (Opcional)</label>
+            <input type="text" id="stockSerialInput" placeholder="Ex: F2LXW908PKD9" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500 font-mono uppercase tracking-wider" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Preço de Custo -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Preço de Custo / Compra (R$)</label>
+            <input type="number" id="stockCostPriceInput" step="0.01" placeholder="Ex: 3800.00" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white outline-none focus:border-rose-500 font-mono" />
+          </div>
+
+          <!-- Preço de Venda -->
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Preço de Venda Final (R$) *</label>
+            <input type="number" id="stockSalePriceInput" required step="0.01" placeholder="Ex: 4999.00" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-emerald-400 font-mono text-base font-bold outline-none focus:border-rose-500" value="4999.00" />
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeAddStockModal()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-bold text-slate-300 transition-all cursor-pointer">
+            Cancelar
+          </button>
+          <button type="submit" id="btnSaveStockItem" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-extrabold shadow-lg shadow-rose-900/40 flex items-center gap-2 transition-all cursor-pointer">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Salvar no Estoque</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL: VISUALIZAÇÃO DO LAUDO TÉCNICO PERICIAL -->
+  <!-- ========================================================= -->
+  <div id="adminInspectionModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="w-full max-w-xl glass-modal p-6 sm:p-8 rounded-3xl border border-white/15 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-2xl bg-blue-500/15 text-blue-400 border border-blue-500/20">
+            <i data-lucide="file-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="admInspectTitle" class="text-base font-bold text-white">Laudo Pericial Mazala</h3>
+            <p id="admInspectSubtitle" class="text-xs text-slate-400">Auditoria técnica de 32 pontos de integridade</p>
+          </div>
+        </div>
+        <button onclick="closeAdminInspectionModal()" class="p-2 text-slate-400 hover:text-white rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-6 space-y-4 text-xs">
+        <div class="grid grid-cols-2 gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+          <div>
+            <span class="text-slate-400 block text-[10px] uppercase font-bold">IMEI Cadastrado:</span>
+            <span id="admInspectImei" class="font-mono text-white font-bold tracking-wider">-</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] uppercase font-bold">Saúde da Bateria:</span>
+            <span id="admInspectBattery" class="font-mono text-emerald-400 font-bold">-</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/30 border border-emerald-800/40 text-emerald-300">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Tela Original Apple (True Tone OK)</span>
+          </div>
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/30 border border-emerald-800/40 text-emerald-300">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Face ID / Câmeras 100% OK</span>
+          </div>
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/30 border border-emerald-800/40 text-emerald-300">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Carcaça e Lentes sem Danos</span>
+          </div>
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/30 border border-emerald-800/40 text-emerald-300">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span>1 Ano de Garantia Mazala Phone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT EXECUTIVO DO PAINEL ADMIN -->
+  <!-- ========================================================= -->
+  <script>
+    // CREDENCIAIS ESTRITAS DO PROPRIETÁRIO
+    const STRICT_PASSWORD = 'leopopa046';
+    const VALID_USERS = ['mazalaphone@gmail.com', 'mazala', 'admin'];
+
+    // Proteção contra Força Bruta
+    let failedAttempts = 0;
+    let lockUntil = 0;
+
+    // Estado Global Seguro da Aplicação (Carregado apenas pós-login)
+    let currentInventory = [];
+    let currentLeads = [];
+    let currentFilterStatus = 'all';
+    let currentSearchTerm = '';
+    let authToken = localStorage.getItem('mazala_admin_token') || null;
+
+    // Catálogo Padrão de Inicialização de Estoque com Preços Reais Mazala Phone
+    const INITIAL_STOCK_ITEMS = [
+      { id: 'inv-1', productId: 'iphone-18-pro-max', productName: 'iPhone 18 Pro Max (Lacrado)', storage: '256GB', color: 'Titânio Preto Cósmico', imei: '359124089123456', serialNumber: 'F2LXW908PKD9', batteryHealth: 100, costPrice: 8500, salePrice: 9890, status: 'available', createdAt: '2026-10-03' },
+      { id: 'inv-2', productId: 'iphone-18-pro-max', productName: 'iPhone 18 Pro Max (Bordô Especial)', storage: '256GB', color: 'Titânio Bordô Especial', imei: '359124089123458', serialNumber: 'F2LXW908PKDB', batteryHealth: 100, costPrice: 9500, salePrice: 11399, status: 'available', createdAt: '2026-10-03' },
+      { id: 'inv-3', productId: 'iphone-17-pro-max', productName: 'iPhone 17 Pro Max (Lacrado)', storage: '256GB', color: 'Titânio Natural', imei: '358941078234561', serialNumber: 'K9QXZ109MNA1', batteryHealth: 100, costPrice: 6500, salePrice: 7690, status: 'available', createdAt: '2026-10-02' },
+      { id: 'inv-4', productId: 'iphone-17-pro', productName: 'iPhone 17 Pro (Lacrado)', storage: '256GB', color: 'Titânio Deserto', imei: '358941078234562', serialNumber: 'K9QXZ109MNA2', batteryHealth: 100, costPrice: 6300, salePrice: 7499, status: 'available', createdAt: '2026-10-02' },
+      { id: 'inv-5', productId: 'iphone-17', productName: 'iPhone 17 (Lacrado)', storage: '256GB', color: 'Branco Estelar', imei: '358941078234563', serialNumber: 'K9QXZ109MNA3', batteryHealth: 100, costPrice: 4900, salePrice: 5899, status: 'available', createdAt: '2026-10-02' },
+      { id: 'inv-6', productId: 'iphone-16-pro-max', productName: 'iPhone 16 Pro Max', storage: '256GB', color: 'Titânio Preto', imei: '357821098456123', serialNumber: 'H7PLQ208XTB3', batteryHealth: 99, costPrice: 4600, salePrice: 5499, status: 'available', createdAt: '2026-10-01' },
+      { id: 'inv-7', productId: 'iphone-16-pro', productName: 'iPhone 16 Pro', storage: '128GB', color: 'Titânio Natural', imei: '357821098456124', serialNumber: 'H7PLQ208XTB4', batteryHealth: 100, costPrice: 4000, salePrice: 4799, status: 'available', createdAt: '2026-10-01' },
+      { id: 'inv-8', productId: 'iphone-16', productName: 'iPhone 16 (Lacrado)', storage: '128GB', color: 'Rosa Pastel', imei: '357821098456125', serialNumber: 'H7PLQ208XTB5', batteryHealth: 100, costPrice: 4100, salePrice: 4899, status: 'available', createdAt: '2026-10-01' },
+      { id: 'inv-9', productId: 'iphone-15-pro-max', productName: 'iPhone 15 Pro Max', storage: '256GB', color: 'Titânio Azul', imei: '356712087654321', serialNumber: 'G5NML307QPR4', batteryHealth: 96, costPrice: 3700, salePrice: 4499, status: 'available', createdAt: '2026-09-30' },
+      { id: 'inv-10', productId: 'iphone-15-pro', productName: 'iPhone 15 Pro', storage: '128GB', color: 'Titânio Natural', imei: '356712087654322', serialNumber: 'G5NML307QPR5', batteryHealth: 97, costPrice: 3200, salePrice: 3899, status: 'available', createdAt: '2026-09-30' },
+      { id: 'inv-11', productId: 'iphone-15', productName: 'iPhone 15 (Seminovo)', storage: '128GB', color: 'Preto', imei: '356712087654323', serialNumber: 'G5NML307QPR6', batteryHealth: 95, costPrice: 2600, salePrice: 3199, status: 'available', createdAt: '2026-09-30' },
+      { id: 'inv-12', productId: 'iphone-15', productName: 'iPhone 15 (Lacrado)', storage: '128GB', color: 'Azul Suave', imei: '356712087654324', serialNumber: 'G5NML307QPR7', batteryHealth: 100, costPrice: 3500, salePrice: 4299, status: 'available', createdAt: '2026-09-30' },
+      { id: 'inv-13', productId: 'iphone-14-pro-max', productName: 'iPhone 14 Pro Max', storage: '128GB', color: 'Roxo Profundo', imei: '355601076543210', serialNumber: 'E3JKH406MNB5', batteryHealth: 93, costPrice: 3000, salePrice: 3699, status: 'sold', soldAt: '2026-10-02', createdAt: '2026-09-28' },
+      { id: 'inv-14', productId: 'iphone-14-pro', productName: 'iPhone 14 Pro', storage: '128GB', color: 'Preto Espacial', imei: '355601076543211', serialNumber: 'E3JKH406MNB6', batteryHealth: 94, costPrice: 2600, salePrice: 3190, status: 'available', createdAt: '2026-09-28' },
+      { id: 'inv-15', productId: 'iphone-14', productName: 'iPhone 14', storage: '128GB', color: 'Estelar', imei: '355601076543212', serialNumber: 'E3JKH406MNB7', batteryHealth: 91, costPrice: 1900, salePrice: 2399, status: 'available', createdAt: '2026-09-28' },
+      { id: 'inv-16', productId: 'iphone-13-pro-max', productName: 'iPhone 13 Pro Max', storage: '128GB', color: 'Azul Sierra', imei: '354590065432109', serialNumber: 'C1HGF505LKA6', batteryHealth: 90, costPrice: 2300, salePrice: 2899, status: 'sold', soldAt: '2026-10-03', createdAt: '2026-09-25' },
+      { id: 'inv-17', productId: 'iphone-13', productName: 'iPhone 13', storage: '128GB', color: 'Rosa Suave', imei: '354590065432110', serialNumber: 'C1HGF505LKA7', batteryHealth: 92, costPrice: 1650, salePrice: 2090, status: 'available', createdAt: '2026-09-25' }
+    ];
+
+    // Clientes e Propostas Isolados por ID Único
+    const INITIAL_LEADS = [
+      { id: 'lead-1', clientId: 'CLI-8491', date: 'Hoje às 16:45', desiredProduct: 'iPhone 18 Pro Max 256GB', tradeIn: 'iPhone 14 128GB (Saúde 88%)', diff: 8749, status: 'Novo' },
+      { id: 'lead-2', clientId: 'CLI-7302', date: 'Hoje às 14:20', desiredProduct: 'iPhone 17 Pro 256GB', tradeIn: 'iPhone 13 128GB (Saúde 91%)', diff: 5849, status: 'Em Atendimento' },
+      { id: 'lead-3', clientId: 'CLI-9124', date: 'Ontem às 19:10', desiredProduct: 'iPhone 16 Pro Max 256GB', tradeIn: 'Sem Troca (À Vista)', diff: 6699, status: 'Fechado' },
+      { id: 'lead-4', clientId: 'CLI-5561', date: 'Ontem às 11:05', desiredProduct: 'iPhone 15 Pro Max 256GB', tradeIn: 'iPhone 12 128GB (Saúde 85%)', diff: 3849, status: 'Fechado' }
+    ];
+
+    // ==========================================
+    // AUTENTICAÇÃO BLINDADA (ESTRITA LEOMAZALA)
+    // ==========================================
+    function handleLogin(e) {
+      if (e) e.preventDefault();
+      
+      const now = Date.now();
+      if (now < lockUntil) {
+        const waitSec = Math.ceil((lockUntil - now) / 1000);
+        document.getElementById('loginErrorMsg').innerText = `Muitas tentativas. Aguarde ${waitSec} segundos para tentar novamente.`;
+        document.getElementById('loginError').classList.remove('hidden');
+        return;
+      }
+
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const pass = document.getElementById('loginPassword').value.trim();
+      const errorBox = document.getElementById('loginError');
+
+      // Validação estrita: somente leopopa046
+      if (pass !== STRICT_PASSWORD || !VALID_USERS.includes(email)) {
+        failedAttempts++;
+        if (failedAttempts >= 5) {
+          lockUntil = Date.now() + 30000; // 30 segundos de bloqueio
+          failedAttempts = 0;
+          errorBox.classList.remove('hidden');
+          document.getElementById('loginErrorMsg').innerText = 'Tentativas excessivas. Painel bloqueado por 30s por segurança.';
+          return;
+        }
+
+        errorBox.classList.remove('hidden');
+        document.getElementById('loginErrorMsg').innerText = 'Credenciais incorretas! Acesso exclusivo ao proprietário.';
+        return;
+      }
+
+      // Sucesso no Login
+      failedAttempts = 0;
+      errorBox.classList.add('hidden');
+      authToken = 'mazala_jwt_token_valid_' + Date.now();
+      sessionStorage.setItem('mazala_auth_token', 'authorized_owner');
+      localStorage.setItem('mazala_admin_token', authToken);
+
+      showDashboard();
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem('mazala_auth_token');
+      localStorage.removeItem('mazala_admin_token');
+      authToken = null;
+      currentInventory = [];
+      currentLeads = [];
+      document.getElementById('dashboardScreen').classList.add('hidden');
+      document.getElementById('loginScreen').classList.remove('hidden');
+      document.getElementById('adminLoginForm').reset();
+      lucide.createIcons();
+    }
+
+    function checkExistingAuth() {
+      const isAuth = sessionStorage.getItem('mazala_auth_token') === 'authorized_owner';
+      if (isAuth) {
+        showDashboard();
+      } else {
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('dashboardScreen').classList.add('hidden');
+        document.getElementById('adminLoginForm').reset();
+        lucide.createIcons();
+      }
+    }
+
+    function showDashboard() {
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('dashboardScreen').classList.remove('hidden');
+      loadInventoryData();
+      loadLeadsData();
+      loadAnalyticsData();
+      lucide.createIcons();
+    }
+
+    // ==========================================
+    // GESTÃO DINÂMICA DE ESTOQUE (INVENTORY)
+    // ==========================================
+    function loadInventoryData() {
+      const stored = localStorage.getItem('mazala_inventory_store');
+      if (stored) {
+        try {
+          currentInventory = JSON.parse(stored);
+        } catch (e) {
+          currentInventory = [...INITIAL_STOCK_ITEMS];
+        }
+      } else {
+        currentInventory = [...INITIAL_STOCK_ITEMS];
+        saveInventoryToStorage();
+      }
+
+      renderInventoryTable();
+      updateInventoryKpis();
+    }
+
+    function saveInventoryToStorage() {
+      localStorage.setItem('mazala_inventory_store', JSON.stringify(currentInventory));
+    }
+
+    function updateInventoryKpis() {
+      const availableItems = currentInventory.filter(i => i.status === 'available');
+      const soldItems = currentInventory.filter(i => i.status === 'sold');
+      const reservedItems = currentInventory.filter(i => i.status === 'reserved');
+
+      const stockTotalVal = availableItems.reduce((acc, curr) => acc + Number(curr.salePrice || 0), 0);
+      const soldTotalVal = soldItems.reduce((acc, curr) => acc + Number(curr.salePrice || 0), 0);
+
+      document.getElementById('kpiAvailableCount').innerText = availableItems.length;
+      document.getElementById('navStockBadge').innerText = availableItems.length;
+      document.getElementById('kpiStockTotalValue').innerText = 'R$ ' + stockTotalVal.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+      
+      document.getElementById('kpiSoldCount').innerText = soldItems.length;
+      document.getElementById('kpiSoldTotalValue').innerText = 'R$ ' + soldTotalVal.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) + ' faturados';
+
+      document.getElementById('kpiReservedCount').innerText = reservedItems.length;
+
+      // Atualiza contadores dos filtros
+      document.getElementById('countFilterAll').innerText = currentInventory.length;
+      document.getElementById('countFilterAvailable').innerText = availableItems.length;
+      document.getElementById('countFilterSold').innerText = soldItems.length;
+      document.getElementById('countFilterReserved').innerText = reservedItems.length;
+    }
+
+    function filterInventoryByStatus(status) {
+      currentFilterStatus = status;
+      
+      document.querySelectorAll('.inv-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-white/15', 'text-white', 'border', 'border-white/15');
+        btn.classList.add('text-slate-400');
+      });
+
+      const activeBtn = document.getElementById('filter-btn-' + status);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('bg-white/15', 'text-white', 'border', 'border-white/15');
+      }
+
+      renderInventoryTable();
+    }
+
+    function handleInventorySearch(e) {
+      currentSearchTerm = (e.target.value || '').toLowerCase().trim();
+      renderInventoryTable();
+    }
+
+    function renderInventoryTable() {
+      const tbody = document.getElementById('inventoryTableBody');
+      if (!tbody) return;
+
+      let filtered = currentInventory.filter(item => {
+        if (currentFilterStatus !== 'all' && item.status !== currentFilterStatus) return false;
+        if (currentSearchTerm) {
+          const matchName = (item.productName || '').toLowerCase().includes(currentSearchTerm);
+          const matchImei = (item.imei || '').toLowerCase().includes(currentSearchTerm);
+          const matchStorage = (item.storage || '').toLowerCase().includes(currentSearchTerm);
+          const matchColor = (item.color || '').toLowerCase().includes(currentSearchTerm);
+          if (!matchName && !matchImei && !matchStorage && !matchColor) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="py-12 text-center text-slate-500">
+              <div class="flex flex-col items-center justify-center">
+                <i data-lucide="package-search" class="w-8 h-8 text-slate-600 mb-2"></i>
+                <span class="font-bold text-slate-400">Nenhum aparelho encontrado com os filtros selecionados.</span>
+                <span class="text-[11px] text-slate-600 mt-0.5">Clique em "+ Adicionar iPhone ao Estoque" para cadastrar novas unidades.</span>
+              </div>
+            </td>
+          </tr>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        const isSold = item.status === 'sold';
+        const isReserved = item.status === 'reserved';
+        const isAvailable = item.status === 'available';
+
+        let statusBadge = '';
+        if (isAvailable) {
+          statusBadge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Disponível</span>';
+        } else if (isSold) {
+          statusBadge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20"><span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> VENDIDO</span>';
+        } else {
+          statusBadge = '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Reservado</span>';
+        }
+
+        const batteryColor = (item.batteryHealth >= 90) ? 'text-emerald-400' : 'text-amber-400';
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition-all ${isSold ? 'opacity-65' : ''}">
+            <td class="py-4 px-5">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300">
+                  <i data-lucide="smartphone" class="w-4 h-4 text-rose-400"></i>
+                </div>
+                <div>
+                  <span class="font-bold text-white text-xs block leading-tight">${item.productName}</span>
+                  <span class="text-[10px] text-slate-400 font-mono block mt-0.5">ID: ${item.id}</span>
+                </div>
+              </div>
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-bold text-slate-200 block">${item.storage}</span>
+              <span class="text-[11px] text-slate-400 block mt-0.5">${item.color}</span>
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-mono text-[11px] text-slate-300 font-semibold tracking-wider block">${item.imei}</span>
+              ${item.serialNumber ? '<span class="font-mono text-[10px] text-slate-500 block uppercase">SN: ' + item.serialNumber + '</span>' : ''}
+            </td>
+
+            <td class="py-4 px-4 text-center">
+              <span class="font-mono-num font-bold text-xs ${batteryColor}">${item.batteryHealth}%</span>
+              <span class="text-[10px] text-slate-500 block">Saúde</span>
+            </td>
+
+            <td class="py-4 px-4">
+              <span class="font-mono-num font-bold text-xs text-white block">R$ ${Number(item.salePrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+              ${item.costPrice ? '<span class="text-[10px] text-slate-500 font-mono block">Custo: R$ ' + Number(item.costPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 }) + '</span>' : ''}
+            </td>
+
+            <td class="py-4 px-4 text-center">
+              ${statusBadge}
+            </td>
+
+            <td class="py-4 px-5 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                ${isAvailable ? `
+                  <button onclick="markItemAsSold('${item.id}')" title="Marcar como Vendido (Tirar do Estoque)" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-all cursor-pointer">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                    <span>Baixa (Vendido)</span>
+                  </button>
+                  <button onclick="toggleReserved('${item.id}')" title="Reservar" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-amber-400 border border-white/10 transition-all cursor-pointer">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                  </button>
+                ` : isSold ? `
+                  <button onclick="revertItemToAvailable('${item.id}')" title="Retornar para Disponível" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-bold text-[11px] flex items-center gap-1 border border-white/10 transition-all cursor-pointer">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-blue-400"></i>
+                    <span>Reativar Estoque</span>
+                  </button>
+                ` : `
+                  <button onclick="markItemAsSold('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i> <span>Vendido</span>
+                  </button>
+                  <button onclick="revertItemToAvailable('${item.id}')" class="p-1.5 rounded-lg bg-white/5 text-slate-300 cursor-pointer">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                  </button>
+                `}
+
+                <button onclick="openAdminInspectionModal('${item.id}')" title="Ver Laudo de 32 Pontos" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-blue-400 border border-white/10 transition-all cursor-pointer">
+                  <i data-lucide="file-check" class="w-3.5 h-3.5"></i>
+                </button>
+
+                <button onclick="deleteStockItem('${item.id}')" title="Remover permanentemente do estoque" class="p-1.5 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-rose-400 border border-rose-800/40 transition-all cursor-pointer">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function markItemAsSold(id) {
+      const item = currentInventory.find(i => i.id === id);
+      if (!item) return;
+
+      if (confirm(`Confirmar venda do ${item.productName} (${item.storage} - IMEI: ${item.imei}) por R$ ${Number(item.salePrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}? O item será baixado do estoque disponível.`)) {
+        item.status = 'sold';
+        item.soldAt = new Date().toISOString();
+        saveInventoryToStorage();
+        renderInventoryTable();
+        updateInventoryKpis();
+      }
+    }
+
+    function revertItemToAvailable(id) {
+      const item = currentInventory.find(i => i.id === id);
+      if (!item) return;
+
+      item.status = 'available';
+      item.soldAt = null;
+      saveInventoryToStorage();
+      renderInventoryTable();
+      updateInventoryKpis();
+    }
+
+    function toggleReserved(id) {
+      const item = currentInventory.find(i => i.id === id);
+      if (!item) return;
+
+      item.status = (item.status === 'reserved') ? 'available' : 'reserved';
+      saveInventoryToStorage();
+      renderInventoryTable();
+      updateInventoryKpis();
+    }
+
+    function deleteStockItem(id) {
+      const item = currentInventory.find(i => i.id === id);
+      if (!item) return;
+
+      if (confirm(`Deseja realmente remover o ${item.productName} (IMEI: ${item.imei}) do sistema?`)) {
+        currentInventory = currentInventory.filter(i => i.id !== id);
+        saveInventoryToStorage();
+        renderInventoryTable();
+        updateInventoryKpis();
+      }
+    }
+
+    function openAddStockModal() {
+      document.getElementById('addStockForm').reset();
+      document.getElementById('stockBatteryInput').value = '100';
+      document.getElementById('stockImeiInput').value = '35' + Math.floor(1000000000000 + Math.random() * 9000000000000);
+      document.getElementById('addStockModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeAddStockModal() {
+      document.getElementById('addStockModal').classList.add('hidden');
+    }
+
+    function handleSaveStockItem(e) {
+      e.preventDefault();
+      
+      const modelSelect = document.getElementById('stockModelSelect');
+      const productId = modelSelect.value;
+      const productName = modelSelect.options[modelSelect.selectedIndex].text;
+      const storage = document.getElementById('stockStorageSelect').value;
+      const color = document.getElementById('stockColorInput').value.trim();
+      const batteryHealth = Number(document.getElementById('stockBatteryInput').value) || 100;
+      const imei = document.getElementById('stockImeiInput').value.trim();
+      const serialNumber = document.getElementById('stockSerialInput').value.trim();
+      const costPrice = Number(document.getElementById('stockCostPriceInput').value) || null;
+      const salePrice = Number(document.getElementById('stockSalePriceInput').value) || 0;
+
+      const exists = currentInventory.some(i => i.imei === imei);
+      if (exists) {
+        alert('Atenção: Já existe um iPhone cadastrado no sistema com este mesmo IMEI.');
+        return;
+      }
+
+      const newItem = {
+        id: 'inv-' + Date.now(),
+        productId,
+        productName,
+        storage,
+        color,
+        batteryHealth,
+        imei,
+        serialNumber,
+        costPrice,
+        salePrice,
+        status: 'available',
+        createdAt: new Date().toISOString()
+      };
+
+      currentInventory.unshift(newItem);
+      saveInventoryToStorage();
+      closeAddStockModal();
+      renderInventoryTable();
+      updateInventoryKpis();
+
+      alert(`Sucesso! ${productName} (${storage} - ${color}) adicionado ao estoque e disponível para venda.`);
+    }
+
+    function openAdminInspectionModal(id) {
+      const item = currentInventory.find(i => i.id === id);
+      if (!item) return;
+
+      document.getElementById('admInspectTitle').innerText = 'Laudo Pericial: ' + item.productName;
+      document.getElementById('admInspectSubtitle').innerText = item.storage + ' • ' + item.color + ' • Homologado Anatel';
+      document.getElementById('admInspectImei').innerText = item.imei;
+      document.getElementById('admInspectBattery').innerText = item.batteryHealth + '% Original de Fábrica';
+
+      document.getElementById('adminInspectionModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeAdminInspectionModal() {
+      document.getElementById('adminInspectionModal').classList.add('hidden');
+    }
+
+    // ==========================================
+    // GESTÃO DE PROPOSTAS & CLIENTES ISOLADOS POR ID
+    // ==========================================
+    function loadLeadsData() {
+      const stored = localStorage.getItem('mazala_leads_store');
+      if (stored) {
+        try {
+          currentLeads = JSON.parse(stored);
+        } catch(e) {
+          currentLeads = [...INITIAL_LEADS];
+        }
+      } else {
+        currentLeads = [...INITIAL_LEADS];
+        localStorage.setItem('mazala_leads_store', JSON.stringify(currentLeads));
+      }
+
+      const badge = document.getElementById('navLeadsBadge');
+      if (badge) badge.innerText = currentLeads.length;
+
+      const tbody = document.getElementById('leadsTableBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = currentLeads.map(lead => {
+        let statusBadge = '';
+        if (lead.status === 'Novo') statusBadge = '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-500/15 text-blue-400 border border-blue-500/25">Novo Lead</span>';
+        else if (lead.status === 'Em Atendimento') statusBadge = '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25">Em Atendimento</span>';
+        else if (lead.status === 'Fechado') statusBadge = '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">Venda Fechada</span>';
+        else statusBadge = '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-500/15 text-slate-400 border border-slate-500/25">' + lead.status + '</span>';
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition-all">
+            <td class="py-4 px-5">
+              <span class="font-mono text-xs font-bold text-purple-300 bg-purple-950/50 border border-purple-800/40 px-2 py-0.5 rounded-md">${lead.clientId}</span>
+            </td>
+            <td class="py-4 px-4 text-slate-400 font-medium text-xs">${lead.date}</td>
+            <td class="py-4 px-4 font-bold text-white text-xs">${lead.desiredProduct}</td>
+            <td class="py-4 px-4 text-slate-300 text-xs">${lead.tradeIn}</td>
+            <td class="py-4 px-4 font-mono-num font-bold text-emerald-400 text-xs">R$ ${Number(lead.diff).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+            <td class="py-4 px-4 text-center">${statusBadge}</td>
+            <td class="py-4 px-5 text-right">
+              <button onclick="toggleLeadStatus('${lead.id}')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 font-bold text-[10px] transition-all cursor-pointer">
+                Mudar Status
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function toggleLeadStatus(id) {
+      const lead = currentLeads.find(l => l.id === id);
+      if (!lead) return;
+
+      const statuses = ['Novo', 'Em Atendimento', 'Fechado', 'Cancelado'];
+      const nextIdx = (statuses.indexOf(lead.status) + 1) % statuses.length;
+      lead.status = statuses[nextIdx];
+      localStorage.setItem('mazala_leads_store', JSON.stringify(currentLeads));
+      loadLeadsData();
+    }
+
+    // ==========================================
+    // MÉTRICAS DE ANALYTICS & CONVERSÃO
+    // ==========================================
+    function loadAnalyticsData() {
+      const tradeInRanking = [
+        { model: 'iPhone 13 128GB', count: 48, avgValue: 2150, percentage: 85 },
+        { model: 'iPhone 14 128GB', count: 39, avgValue: 2750, percentage: 70 },
+        { model: 'iPhone 12 128GB', count: 34, avgValue: 1550, percentage: 60 },
+        { model: 'iPhone 11 128GB', count: 28, avgValue: 1200, percentage: 50 },
+        { model: 'iPhone 15 128GB', count: 22, avgValue: 3400, percentage: 40 }
+      ];
+
+      const tradeInContainer = document.getElementById('analyticsTradeInRanking');
+      if (tradeInContainer) {
+        tradeInContainer.innerHTML = tradeInRanking.map((item, idx) => `
+          <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-400 font-mono-num font-bold text-xs flex items-center justify-center">#${idx + 1}</span>
+              <div>
+                <span class="font-bold text-white text-xs block">${item.model}</span>
+                <span class="text-[10px] text-slate-400">Avaliação Média: R$ ${item.avgValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-mono-num font-extrabold text-sm text-amber-400">${item.count} simulações</span>
+              <div class="w-24 bg-white/10 h-1.5 rounded-full overflow-hidden mt-1 ml-auto">
+                <div class="bg-amber-400 h-full rounded-full" style="width: ${item.percentage}%"></div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const waClicks = [
+        { model: 'iPhone 18 Pro Max', clicks: 142 },
+        { model: 'iPhone 17 Pro Max', clicks: 98 },
+        { model: 'iPhone 16 Pro Max', clicks: 86 },
+        { model: 'iPhone 15 Pro Max', clicks: 64 },
+        { model: 'iPhone 13 Pro Max', clicks: 52 }
+      ];
+
+      const waContainer = document.getElementById('analyticsWhatsAppClicks');
+      if (waContainer) {
+        waContainer.innerHTML = waClicks.map(item => `
+          <div class="p-3 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
+            <span class="text-xs font-bold text-white">${item.model}</span>
+            <span class="font-mono-num font-bold text-xs text-emerald-400 flex items-center gap-1">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> ${item.clicks} cliques
+            </span>
+          </div>
+        `).join('');
+      }
+
+      const leadsWeek = [
+        { day: 'Seg', leads: 18 },
+        { day: 'Ter', leads: 24 },
+        { day: 'Qua', leads: 31 },
+        { day: 'Qui', leads: 29 },
+        { day: 'Sex', leads: 42 },
+        { day: 'Sáb', leads: 56 },
+        { day: 'Dom', leads: 38 }
+      ];
+
+      const leadsContainer = document.getElementById('analyticsLeadsVolume');
+      if (leadsContainer) {
+        const max = Math.max(...leadsWeek.map(d => d.leads));
+        leadsContainer.innerHTML = leadsWeek.map(d => {
+          const heightPct = Math.round((d.leads / max) * 100);
+          return `
+            <div class="flex flex-col items-center gap-2">
+              <span class="font-mono-num font-bold text-xs text-purple-300">${d.leads}</span>
+              <div class="w-full bg-white/5 rounded-xl h-24 flex items-end p-1">
+                <div class="w-full bg-gradient-to-t from-purple-600 to-purple-400 rounded-lg" style="height: ${heightPct}%"></div>
+              </div>
+              <span class="text-[10px] text-slate-400 font-bold uppercase">${d.day}</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    // ==========================================
+    // CONTROLE DE NAVEGAÇÃO DE ABAS
+    // ==========================================
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white/10', 'text-white', 'border', 'border-white/15', 'shadow-sm');
+        btn.classList.add('text-slate-400');
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      const btn = document.getElementById('btn-' + tabId);
+      if (btn) {
+        btn.classList.remove('text-slate-400');
+        btn.classList.add('bg-white/10', 'text-white', 'border', 'border-white/15', 'shadow-sm');
+      }
+
+      if (tabId === 'tab-inventory') {
+        renderInventoryTable();
+        updateInventoryKpis();
+      } else if (tabId === 'tab-leads') {
+        loadLeadsData();
+      } else if (tabId === 'tab-analytics') {
+        loadAnalyticsData();
+      }
+      lucide.createIcons();
+    }
+
+    // Inicialização ao carregar página
+    window.addEventListener('DOMContentLoaded', () => {
+      checkExistingAuth();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+  <!-- VITRINE COMPLETA COM FILTROS DE CATEGORIA -->
+  <section id="catalogo" class="py-14 sm:py-20 bg-[#f5f5f7]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-100/70 px-3.5 py-1.5 rounded-full border border-emerald-300">
+          Catálogo Oficial & Preços Reais Mazala
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#1d1d1f] mt-3 mb-3">
+          Escolha o seu próximo Apple.
+        </h2>
+        <p class="text-xs sm:text-base text-[#86868b] font-medium">
+          Aparelhos selecionados a dedo com 1 ano de garantia total, nota de garantia e atendimento VIP no WhatsApp.
+        </p>
+      </div>
+
+      <!-- Filtros de Categoria (Tabs) -->
+      <div class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8">
+        <button onclick="filterCategory('all', this)" class="category-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-[#1d1d1f] text-white shadow-md">
+          Todos os Produtos
+        </button>
+        <button onclick="filterCategory('iphones', this)" class="category-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-white text-[#1d1d1f] hover:bg-neutral-200 border border-black/5 shadow-sm">
+          iPhones
+        </button>
+        <button onclick="filterCategory('macbooks', this)" class="category-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-white text-[#1d1d1f] hover:bg-neutral-200 border border-black/5 shadow-sm">
+          MacBooks
+        </button>
+        <button onclick="filterCategory('ipads', this)" class="category-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-white text-[#1d1d1f] hover:bg-neutral-200 border border-black/5 shadow-sm">
+          iPads
+        </button>
+        <button onclick="filterCategory('watch', this)" class="category-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-white text-[#1d1d1f] hover:bg-neutral-200 border border-black/5 shadow-sm">
+          Apple Watch
+        </button>
+      </div>
+
+      <!-- GRID DE PRODUTOS: EFEITO INTERATIVO 3D + FOTOS COM ZOOM GIGANTE E APROXIMADAS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+        <!-- PRODUTO 1: iPhone 16 Pro (RENDER OFICIAL TITÂNIO NATURAL / DESERTO) -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-black text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Lançamento Oficial
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-naturaltitanium-select?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 16 Pro 128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 16 Pro</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">128GB • Titânio Natural / Deserto • Chip A18 Pro</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 4.699,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 321,09 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Tenho%20interesse%20no%20iPhone%2016%20Pro%20128GB%20(R%24%204.699%2C00).%20Poderia%20me%20passar%20as%20cores%20dispon%C3%ADveis%3F" 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 2: iPhone 15 Pro -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-[#1d1d1f] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Titânio
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 15 Pro 128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 15 Pro</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">128GB • Titânio • Chip A17 Pro com USB-C</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 4.199,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 286,90 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Tenho%20interesse%20no%20iPhone%2015%20Pro%20128GB%20(R%24%204.199%2C00).%20Ainda%20tem%20em%20estoque%3F" 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 3: iPhone 15 -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Dynamic Island
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-blue?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 15 128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 15</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">128GB • Câmera 48MP • Conexão USB-C</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 3.699,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 308,25 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Gostaria%20de%20comprar%20o%20iPhone%2015%20128GB%20por%20R%24%203.699%2C00." 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 4: iPhone 14 -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-neutral-800 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Melhor Custo-Benefício
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-midnight?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 14 128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 14</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">128GB • Modo Ação • Bateria para o dia todo</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 2.799,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 249,92 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Quero%20aproveitar%20o%20iPhone%2014%20128GB%20por%20R%24%202.799%2C00." 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 5: iPhone 13 -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-rose-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Mais Vendido
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch-starlight?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 13 128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 13</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">128GB • Modo Cinema • Chip A15 Bionic</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 2.199,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 208,25 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Tenho%20interesse%20no%20iPhone%2013%20128GB%20(R%24%202.199%2C00).%20Quais%20as%20condi%C3%A7%C3%B5es%3F" 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 6: iPhone 12 -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-emerald-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="iphones">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Entrada Premium
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <!-- Foto Grande com Zoom Aproximado -->
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-purple-select-2021?wid=940&hei=1112&fmt=png-alpha" 
+                   alt="iPhone 12 64GB/128GB Mazala Phone" 
+                   class="h-full w-auto max-h-[360px] sm:max-h-[400px] object-contain scale-140 group-hover:scale-155 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">iPhone 12</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">64GB / 128GB • Tela OLED Super Retina XDR • 5G</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Valor à vista promocional:</span>
+              <span class="text-2xl sm:text-3xl font-black text-[#1d1d1f]">R$ 1.799,00</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">ou 12x de R$ 169,90 no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Gostaria%20do%20iPhone%2012%20por%20R%24%201.799%2C00.%20Tem%20pronta%20entrega%3F" 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Comprar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 7: MacBook Air & Pro M-Series -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-blue-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="macbooks">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-neutral-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Apple Silicon
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=png-alpha" 
+                   alt="MacBook Apple M2" 
+                   class="h-full w-auto max-h-[340px] sm:max-h-[380px] object-contain scale-120 group-hover:scale-135 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">MacBook Air & Pro M-Series</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">Desempenho extremo e bateria de até 18 horas</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Consulte modelos & configurações:</span>
+              <span class="text-2xl font-black text-[#1d1d1f]">Preço sob Consulta</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">Parcelamento em até 18x no cartão</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20os%20modelos%20e%20pre%C3%A7os%20de%20MacBook%20dispon%C3%ADveis%20na%20Mazala%20Phone." 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Consultar MacBooks no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 8: iPad Air & Pro -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-purple-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="ipads">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-cyan-700 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Produtividade
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-10th-gen-finish-select-202210-blue?wid=960&hei=1000&fmt=png-alpha" 
+                   alt="Linha iPad Apple Mazala Phone" 
+                   class="h-full w-auto max-h-[340px] sm:max-h-[380px] object-contain scale-120 group-hover:scale-135 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">Linha Apple iPad (9ª, 10ª, Air, Pro)</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">Para estudos, ilustração e trabalho com Apple Pencil</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Consulte modelos & capacidades:</span>
+              <span class="text-2xl font-black text-[#1d1d1f]">Preço sob Consulta</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">Novos & Seminovos com Garantia</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20os%20modelos%20de%20iPad%20dispon%C3%ADveis%20na%20loja." 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Consultar iPads no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTO 9: Apple Watch Series & Ultra -->
+        <div class="product-card group bg-white rounded-3xl p-6 sm:p-7 border border-black/5 hover:border-black/30 hover:ring-2 hover:ring-red-500/20 shadow-apple hover:shadow-2xl transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 flex flex-col justify-between" data-category="watch">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="inline-flex items-center gap-1 bg-red-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                Saúde & Fitness
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1 Ano Garantia
+              </span>
+            </div>
+
+            <div class="h-80 sm:h-96 flex items-center justify-center p-0 relative overflow-hidden">
+              <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-card-40-ultra2-202409?wid=680&hei=528&fmt=p-jpg" 
+                   alt="Apple Watch Series e Ultra" 
+                   class="h-full w-auto max-h-[340px] sm:max-h-[380px] object-contain scale-120 group-hover:scale-135 transition-transform duration-300 ease-out drop-shadow-2xl" />
+            </div>
+
+            <div class="mt-2 text-center">
+              <h3 class="text-xl sm:text-2xl font-black text-[#1d1d1f] tracking-tight">Apple Watch (SE, Series & Ultra)</h3>
+              <p class="text-xs text-[#86868b] font-medium mt-0.5">Monitoramento cardíaco, ECG, treinos e conectividade</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-black/5">
+            <div class="text-center mb-4">
+              <span class="text-xs text-[#86868b] font-medium block">Consulte tamanhos & pulseiras:</span>
+              <span class="text-2xl font-black text-[#1d1d1f]">Preço sob Consulta</span>
+              <span class="block text-xs font-bold text-emerald-600 mt-1">Pronta entrega em Cataguases</span>
+            </div>
+
+            <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Gostaria%20de%20saber%20os%20modelos%20de%20Apple%20Watch%20dispon%C3%ADveis%20na%20Mazala%20Phone." 
+               target="_blank" 
+               class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md hover:shadow-glow-emerald transition-all transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+              <span>Consultar Watch no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>

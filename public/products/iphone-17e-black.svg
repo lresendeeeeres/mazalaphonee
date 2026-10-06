@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <radialGradient id="spot" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#C8A45D" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#E10B1F" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E22"/>
+      <stop offset="100%" stop-color="#111113"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="25" flood-color="#000" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#C8A45D" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background Spotlight -->
+  <rect width="600" height="750" fill="#050505"/>
+  <ellipse cx="300" cy="360" rx="260" ry="260" fill="url(#spot)"/>
+
+  <!-- Phone Body -->
+  <g filter="url(#shadow)" transform="translate(140, 75)">
+    <!-- Chassis -->
+    <rect x="0" y="0" width="320" height="600" rx="54" fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
+    <rect x="4" y="4" width="312" height="592" rx="50" fill="#08080A" stroke="#1F1F24" stroke-width="1.5"/>
+
+    <!-- Screen Bezel & OLED Display -->
+    <rect x="14" y="14" width="292" height="572" rx="42" fill="#030304"/>
+    <rect x="16" y="16" width="288" height="568" rx="40" fill="url(#bodyGrad)" fill-opacity="0.12"/>
+
+    <!-- Dynamic Island -->
+    <rect x="108" y="28" width="104" height="28" rx="14" fill="#000" stroke="#1C1C1E" stroke-width="1"/>
+    <circle cx="194" cy="42" r="5" fill="#0A1128"/>
+
+    <!-- Camera Module Hint (Back reflection / Pro aesthetic) -->
+    
+      <rect x="24" y="24" width="70" height="115" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+      <circle cx="59" cy="56" r="20" fill="#141416" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+      <circle cx="59" cy="102" r="20" fill="#141416" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    
+
+    <!-- Screen Glow & Apple subtle wallpaper wave -->
+    <path d="M 30 500 Q 160 300 290 420" stroke="#1E1E22" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M 30 530 Q 160 330 290 450" stroke="#C8A45D" stroke-width="1.5" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Ground Reflection -->
+  <ellipse cx="300" cy="705" rx="180" ry="12" fill="#000" opacity="0.8"/>
+  <ellipse cx="300" cy="705" rx="140" ry="8" fill="#C8A45D" opacity="0.08"/>
+</svg>
