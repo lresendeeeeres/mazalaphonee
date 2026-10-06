@@ -1,0 +1,128 @@
+﻿  <!-- FOOTER PROFISSIONAL COM DISCLAIMER JURÍDICO -->
+  <footer class="bg-black text-[#86868b] text-xs py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600">
+              <img src="assets/logo-mazala.webp" alt="Logo Mazala Phone" class="w-full h-full object-cover rounded-full bg-black" />
+            </div>
+            <span class="font-extrabold text-white text-base tracking-wider">M<span class="text-rose-500">Λ</span>Z<span class="text-rose-500">Λ</span>L<span class="text-rose-500">Λ</span> PHONE</span>
+          </div>
+          <p class="text-[11px] leading-relaxed max-w-sm mb-3 text-neutral-400">
+            Especialistas em venda de iPhones, MacBooks, iPads e Apple Watch novos e seminovos premium com 1 ano de garantia para Cataguases e toda a Região da Zona da Mata mineira.
+          </p>
+          <div class="text-[11px] text-white/90 flex flex-col gap-1">
+            <span>📍 Cataguases - MG | Atendimento Regional VIP</span>
+            <a href="https://instagram.com/mazala_phone" target="_blank" class="text-rose-400 font-semibold hover:underline flex items-center gap-1">
+              <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+              @mazala_phone (+9.6k seguidores)
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Acesso Rápido</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#catalogo" class="hover:text-white transition-colors">Catálogo de iPhones</a></li>
+            <li><a href="#ecossistema" class="hover:text-white transition-colors">MacBooks & iPads</a></li>
+            <li><a href="#tradein" class="hover:text-white transition-colors">Simulador Trade-in</a></li>
+            <li><a href="#clientes" class="hover:text-white transition-colors">Entregas & Clientes</a></li>
+            <li><a href="#diferenciais" class="hover:text-white transition-colors">1 Ano de Garantia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Atendimento & WhatsApp</h4>
+          <p class="text-[11px] leading-relaxed mb-3 text-neutral-400">
+            Segunda a Sexta: 09h às 19h<br>
+            Sábado: 09h às 14h
+          </p>
+          <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mazala%20Phone." 
+             target="_blank" 
+             class="inline-flex items-center gap-2 text-emerald-400 font-bold text-xs bg-emerald-950/60 border border-emerald-800 px-3 py-2 rounded-xl hover:bg-emerald-900 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 fill-emerald-400"></i>
+            (32) 98854-7377
+          </a>
+        </div>
+
+      </div>
+
+      <!-- DISCLAIMER DE ISENÇÃO JURÍDICA OBRIGATÓRIO -->
+      <div class="pt-6 border-t border-white/10 text-[10px] leading-relaxed text-neutral-400 space-y-2">
+        <p>
+          <strong>Aviso Legal & Isenção de Responsabilidade:</strong> A Mazala Phone é uma empresa independente especializada na comercialização e suporte de produtos e acessórios Apple novos e seminovos selecionados. Não possui afiliação direta, representação oficial ou vínculo societário com a Apple Inc. Apple, o logotipo da Apple, iPhone, iPad, MacBook e Apple Watch são marcas registradas de titularidade exclusiva da Apple Inc., nos Estados Unidos e em outros países.
+        </p>
+        <p class="text-center pt-2 text-neutral-400">
+          © <span id="currentYear"></span> MAZALA PHONE. Todos os direitos reservados. Cataguases - MG.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP (CRO MOBILE OTIMIZADO) -->
+  <aside aria-label="Atendimento Rápido" class="fixed bottom-5 right-5 z-50">
+    <a href="https://wa.me/5532988547377?text=Ol%C3%A1!%20Estou%20no%20site%20da%20Mazala%20Phone%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." 
+       target="_blank" 
+       aria-label="Fale conosco no WhatsApp"
+       class="flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-white font-black p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-glow-wa hover:scale-105 active:scale-95 transition-all duration-300">
+      <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+      <span class="hidden sm:inline text-xs font-extrabold tracking-wide uppercase">Falar no WhatsApp VIP</span>
+    </a>
+  </aside>
+
+  <!-- JAVASCRIPT: LUCIDE ICONS, FILTRAGEM E TRADE-IN -->
+  <script>
+    // Inicializar ícones Lucide
+    lucide.createIcons();
+
+    // Ano atual no rodapé
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Filtros de Categoria
+    function filterCategory(category, btnElement) {
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-[#1d1d1f]', 'text-white', 'shadow-md');
+        btn.classList.add('bg-white', 'text-[#1d1d1f]', 'shadow-sm');
+      });
+
+      btnElement.classList.add('bg-[#1d1d1f]', 'text-white', 'shadow-md');
+      btnElement.classList.remove('bg-white', 'text-[#1d1d1f]', 'shadow-sm');
+
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        if (category === 'all' || product.getAttribute('data-category') === category) {
+          product.style.display = 'flex';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Handler do Simulador Trade-in
+    function handleTradeIn(event) {
+      event.preventDefault();
+      
+      const currentModel = document.getElementById('currentModel').value;
+      const batteryHealth = document.getElementById('batteryHealth').value;
+      const targetModel = document.getElementById('targetModel').value;
+      const userName = document.getElementById('userName').value;
+
+      const message = `Olá, Mazala Phone! Me chamo ${userName} e fiz a simulação de Trade-in no site:\n\n` +
+                      `📱 Meu aparelho atual: ${currentModel}\n` +
+                      `🔋 Saúde da bateria: ${batteryHealth}\n` +
+                      `🎯 Modelo que quero comprar: ${targetModel}\n\n` +
+                      `Gostaria de saber qual a avaliação estimada para o meu aparelho na troca!`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/5532988547377?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZALA PHONE | Especialista em Apple - Cataguases e Região</title>
+  <meta name="description" content="iPhones, iPads, MacBooks e Apple Watch novos e seminovos com 1 ano de garantia em Cataguases e Região. Parcele em até 18x ou troque seu usado." />
+  
+  <link rel="icon" href="assets/logo-mazala.webp" type="image/webp">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'sans-serif'],
+          },
+          colors: {
+            apple: {
+              bg: '#f5f5f7',
+              dark: '#1d1d1f',
+              gray: '#86868b',
+              lightgray: '#d2d2d7',
+              blue: '#0071e3',
+              card: '#ffffff',
+            },
+            whatsapp: {
+              DEFAULT: '#25D366',
+              dark: '#128C7E',
+              hover: '#1ebe5d'
+            },
+            mazala: {
+              red: '#e53935',
+              dark: '#111111',
+              gold: '#d4af37'
+            }
+          },
+          boxShadow: {
+            'apple': '0 4px 24px rgba(0, 0, 0, 0.04)',
+            'apple-hover': '0 16px 40px rgba(0, 0, 0, 0.09)',
+            'glow-emerald': '0 0 25px rgba(16, 185, 129, 0.4)',
+            'glow-wa': '0 8px 30px rgba(37, 211, 102, 0.45)',
+            'glow-mac': '0 20px 50px rgba(0, 113, 227, 0.15)'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'pulse-glow': 'pulse-glow 3s infinite ease-in-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            'pulse-glow': {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.02)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { height: 6px; width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #8e8e93; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .glass-nav { 
+      background: rgba(255, 255, 255, 0.88); 
+      backdrop-filter: blur(24px); 
+      -webkit-backdrop-filter: blur(24px); 
+    }
+    .glass-dark { 
+      background: rgba(18, 18, 20, 0.85); 
+      backdrop-filter: blur(24px); 
+      -webkit-backdrop-filter: blur(24px); 
+    }
+    .text-gradient { 
+      background: linear-gradient(180deg, #1d1d1f 0%, #48484a 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+    .text-gradient-silver {
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1a6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-[#f5f5f7] text-[#1d1d1f] antialiased selection:bg-black selection:text-white font-sans">
